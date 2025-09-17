@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script defer src="./script.js"></script>
+
+    <title>Frontend Mentor | Contact form</title>
+  </head>
+  <body>
+    <main class="container">
+      <form class="form__main">
+        <h1>Contact Us</h1>
+        <fieldset class="full-name">
+          <div>
+            <label for="f-name" class="label">First Name *</label>
+            <input
+              type="text"
+              name="fname"
+              id="f-name"
+              class="input input--text"
+            />
+            <p class="error error--fname">This field is required</p>
+          </div>
+          <div>
+            <label for="l-name" class="label">Last Name *</label>
+            <input
+              type="text"
+              id="l-name"
+              name="lname"
+              class="input input--text"
+            />
+            <p class="error error--lname">This field is required</p>
+          </div>
+        </fieldset>
+        <div>
+          <label for="email" class="label">Email Address *</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="input input--email"
+          />
+          <p class="error error--email">Provided email is not valid</p>
+        </div>
+        <!-- Please enter a valid email address -->
+        <div>
+          <fieldset class="query-type">
+            <legend>Query Type</legend>
+            <div>
+              <input
+                type="radio"
+                id="general-query"
+                name="query"
+                value="general"
+                class="input input--radio"
+              />
+              <label for="general-query" class="label label--radio">
+                General Enquiry</label
+              >
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="support-query"
+                name="query"
+                value="support"
+                class="input input--radio"
+              />
+              <label for="support-query" class="label label--radio">
+                Support Request</label
+              >
+            </div>
+          </fieldset>
+          <div>
+            <p class="error error--query">Please select a query type</p>
+          </div>
+        </div>
+
+        <div>
+          <label for="message" class="label">Message *</label>
+          <textarea
+            id="message"
+            class="input input--textarea"
+            name="message"
+          ></textarea>
+          <p class="error error--message">This field is required</p>
+        </div>
+        <div class="checkbox">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            class="input input--checkbox"
+          />
+          <label for="consent" class="label label--consent">
+            I consent to being contacted by the team
+          </label>
+          <p class="error error--consent">
+            To submit this form please consent to being contacted
+          </p>
+        </div>
+        <section class="section__toast" role="status">
+          <header class="section__header">
+            <img
+              src="./assets/images/icon-success-check.svg"
+              alt="success tick sign"
+            />
+            <h2 class="header--heading">Message Sent!</h2>
+          </header>
+          <p>Thanks for completing the form. We'll be in touch soon!</p>
+        </section>
+        <button class="btn--submit" type="submit">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
