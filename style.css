@@ -22,7 +22,8 @@ html {
 body {
   min-height: 100vh;
   font-family: "Karla", sans-serif;
-  font-size: var(--font-sm);
+  /* font-size: var(--font-sm); */
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-weight: 400;
   display: flex;
   align-items: center;
@@ -129,6 +130,7 @@ legend {
   border-radius: 1rem;
   padding: 1.6rem 4rem;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .label--radio:focus,
@@ -156,7 +158,8 @@ legend {
   border: none;
   border-radius: 1rem;
   font-size: var(--font-sm);
-  transition: background-color 0.2s;
+  transition: background-color ease-in-out 0.2s;
+  cursor: pointer;
 }
 .btn--submit:hover,
 .btn--submit:active,
@@ -197,14 +200,6 @@ legend {
   font-weight: var(--font-wt-bold);
 }
 
-@media (max-width: 500px) {
-  .container {
-    width: min(40rem, 90%);
-  }
-  fieldset {
-    flex-direction: column;
-  }
-}
 .input:not(input[type="radio"]):not(input[type="checkbox"]):focus-visible {
   outline: 1px solid var(--color-Green-600);
   box-shadow: 0 1px 2px 0px var(--color-Green-600);
@@ -220,11 +215,20 @@ legend {
   box-shadow: 0 0 0 2px var(--color-Green-600);
 }
 .input.input--error:not(:focus) {
-  border: 1px solid var(--color-Red) !important;
+  border: 1px solid var(--color-Red);
 }
 /* .label--radio.input--error {
-  border: 2px solid var(--color-Red) !important;
+  border: 2px solid var(--color-Red);
 } */
 .input.input--error + .label--consent::before {
-  border: 1px solid var(--color-Red) !important;
+  border: 1px solid var(--color-Red);
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: min(40rem, 90%);
+  }
+  fieldset {
+    flex-direction: column;
+  }
 }

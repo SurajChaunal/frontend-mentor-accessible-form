@@ -13,8 +13,8 @@ const validators = {
     const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
     return { ok, message: "Please enter a valid email address." };
   },
-  query: (_) => {
-    const ok = !!document.querySelector('input[name="query"]:checked');
+  query: (ctx) => {
+    const ok = !!ctx.querySelector('input[name="query"]:checked');
     return { ok, message: "Please choose a query type." };
   },
   message: (ctx) => {
@@ -25,8 +25,9 @@ const validators = {
       message: "Message must be at least 10 characters.",
     };
   },
-  consent: (_) => {
-    const el = document.getElementById("consent");
+  consent: (ctx) => {
+    const el = ctx.consent;
+    console.log(el);
     const ok = el && el.checked;
     return { ok, message: "You must consent to proceed." };
   },
@@ -41,7 +42,7 @@ let hasError = false;
 
 // console.log(getAllErrorEls());
 function validateKey(key) {
-  const result = validators[key](formEl.elements);
+  const result = validators[key](formEl);
   if (!result.ok) {
     hasError = true;
     // if (key === "query") {
@@ -50,7 +51,7 @@ function validateKey(key) {
     //     // radio.classList.add("input--error");
     //   });
     // }
-    if (key != `query`) {
+    if (key !== `query`) {
       formEl[key].classList.add("input--error");
     }
     showErrorMessage(key, result.message);
@@ -73,7 +74,7 @@ function clearAllErrors() {
 function handleSuccess() {
   toastEl.classList.add("active");
   formEl.reset();
-  setTimeout(() => toastEl.classList.remove("active"), 2000);
+  setTimeout(() => toastEl.classList.remove("active"), 5000);
 }
 function handleSubmit(e) {
   hasError = false;
